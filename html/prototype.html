@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prototype</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="shortcut icon" href="img/window-icon/window-icon.png" type="image/png">
+</head>
+
+<body>
+  <div class="wrapper">
+
+  <div class="wrapper">
+	<header class="page-header">
+		<div class="container">
+			<a href="../index.html">home</a>
+		</div>
+	</header>
+
+    <main class="page--main">
+      <div class="container">
+
+<section class="prototype">
+
+            <h1>прототипы</h1>
+            <p>Когда мы пытаемся получить доступ к свойству объекта, свойство ищется не только в самом объекте. Также
+              производится
+              поиск в прототипе объекта, в прототипе прототипа и так далее — пока не будет найдено свойство,
+              соответствующее имени,
+              или не будет достигнут конец цепочки прототипов .</p>
+            <p>Если свойство или метод не найдено нигде в цепочке прототипов, только тогда JavaScript вернет undefined.
+            </p>
+            <p>Если мы создадим массив и выведем его на консоль, в нем мы увидим это: [[Prototype]]</p>
+            <p>Двойные квадратные скобки, которые заключают в себя, [[Prototype]]означают, что это внутреннее свойство и
+              к нему нельзя
+              получить прямой доступ в коде.</p>
+            <p>Чтобы найти [[Prototype]]объект, мы воспользуемся Object.getPrototypeOf()методом.</p>
+
+            <pre><code>
+const arr = [1,2,3]
+console.log(Object.getPrototypeOf(arr))
+
+</code></pre>
+
+
+            <p>В конце цепочки прототипов находится Object.prototype. Все объекты наследуют свойства и методы Object.
+              Любая попытка
+              поиска за пределами конца цепочки приводит к результату null.</p>
+            <p>Если вы ищете прототип прототипа массива, функции или строки, вы увидите, что это объект. И это потому,
+              что в JavaScript
+              все объекты являются потомками или экземплярами Object.prototypeобъекта , который устанавливает свойства и
+              методы для
+              всех других типов данных JavaScript.</p>
+
+            <pre><code>
+const arr = [1,2,3]
+const arrProto = Object.getPrototypeOf(arr)
+console.log(Object.getPrototypeOf(arrProto))
+
+</code></pre>
+
+
+            <p>Каждый тип прототипа (например, прототип массива) определяет свои собственные методы и свойства, а в
+              некоторых случаях
+              переопределяет методы Object.prototypeи свойства (вот почему у массивов есть методы, которых нет у
+              объектов).</p>
+            <p>Но под капотом и по лестнице цепочки прототипов все в JavaScript построено на платформе Object.prototype.
+            </p>
+            <p>Если мы попытаемся заглянуть в прототип, то Object.prototype получим null.</p>
+
+            <pre><code>
+const arr = [1,2,3]
+const arrProto = Object.getPrototypeOf(arr)
+const objectProto = Object.getPrototypeOf(arrProto)
+console.log(Object.getPrototypeOf(objectProto))
+
+</code></pre>
+
+</section>
+
+      </div>
+    </main>
+
+  </div>
+  <script src="../main.js"></script>
+</body>
+
+</html>

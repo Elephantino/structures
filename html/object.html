@@ -73,50 +73,109 @@ console.log(person.getName); // aa bb
                   </div>
 
 
-                  <div class="performance">
 
-                    <pre><code> 
-				                        │  
-               <b>свойства</b>                                 │                  <b>методы</b>
-	                                                │
-<b>обращение</b>                                               │ <b>обращение</b>
-                                                        │
-через точку:                                            │ const getName = person.getFullName();
-person.firstName;                                       │
-                                                        │ getName; 
-через квадратные скобки, ключ в этом случае             │
-нужно указывать в виде строки:                          │ person.getFullName();  
-                                                        │ person['getFullName']();
-person['name'];                                         │
-                                                        │
-                                                        │
-разница в том что через . мы не можем                   │
-обратиться к нестандартному свойству,                   │ <b>изменим значения свойств</b>
-например которое состоит из двух слов или               │
-имеет тип nember:                                       │ person.name= 'чем заменяем';
-                                                        │ person["new prop"] = "money";
-person["new prop"] = "bateman";                         │ 
-                                                        │
-obj[3]                                                  │
-                                                        │
----------------------------------------                 │	
-                                                        │ <b>методы объектов</b>
-<b>добавление</b>         			                │		
-                                                        │ delete obj.key — удалит значение
-объект.["новое свойство"] = "значение"                  │ obj.assign — копирует все свойства
-person["last name"] = "Рыбинский";                      │ obj.keys/values/entries — вернет массив ключей/значений
-person.children = [                                     │
-  {                                                     │ "key" in obj — проверка наличия ключа
+<section class="property">
+
+
+<h3>свойства</h3>
+
+<div class="property__item performance"> 
+	<pre><code>
+<b>обращение</b>
+	
+через точку: 	
+person.firstName;
+	
+через квадратные скобки, ключ в этом случае	
+нужно указывать в виде строки
+person['name'];
+
+разница в том что через . мы не можем                   
+обратиться к нестандартному свойству,                    
+например которое состоит из двух слов или               
+имеет тип nember:
+person["new prop"] = "bateman";                          
+
+obj[3] 
+	</code></pre>
+</div>
+
+
+
+<h3>методы</h3>
+
+<div class="property__item performance">
+	
+	
+		<pre><code>
+<b>обращение</b>
+
+const getName = person.getFullName();
+getName; 
+
+person.getFullName();  
+person['getFullName']();
+		</code></pre>
+</div>
+
+
+<div class="property__item performance"> 
+	<pre><code>
+<b>изменим значения свойств</b>	
+
+person.name= 'чем заменяем';
+person["new prop"] = "money";
+	</code></pre>
+</div>
+
+
+
+
+
+<div class="property__item performance"> 
+	<pre><code>
+<b>добавление</b>	
+	
+объект.["новое свойство"] = "значение"  
+
+person["last name"] = "Рыбинский"; 
+person.children = [
+  {                                                    
     name: 'Алиса',
     age: 8
   },
-  {                                                       <b>Проверить наличия ключа</b>
+  {                                                       
     name: 'Виктор',                             
-    age: 14                                                    'name' in person // true
-  }                                                            'middleName' in person // false
+    age: 14                                                    
+  }                                                            
 ];
- </code></pre>
-                  </div>
+	</code></pre>
+</div>
+
+
+<div class="property__item performance"> 
+	<pre><code>
+<b>методы объектов</b>	
+	
+delete obj.key — удалит значение	 
+obj.assign — копирует все свойства
+obj.keys/values/entries — вернет массив ключей/значений
+"key" in obj — проверка наличия ключа
+Object.create(proto[, propertiesObject]) - новый объект с указанным прототипом и свойствами
+Object.freeze(obj) - предотвращает добавление новых свойств, удаление старых свойств, изменение существующих
+	</code></pre>
+</div>
+
+
+
+
+
+
+
+
+</section>
+
+
 
 <h3>перебор объекта</h3>
 

@@ -675,6 +675,35 @@ spliceArray.splice(1, 1); // изменит массив и
 
 
 
+
+                    <details class="show-piece peek">
+                      <summary><code>peek() - </code>получить последний элемент не кдаляя его из массива</summary>
+<p>для просмотра последнего элемента массива</p>
+					  
+<textarea cols="30" rows="10">
+arr[arr.length - 1]
+
+добавитиь метод в цепочку прототипов Array 
+
+
+Array.prototype.peek = function() {
+  if (this.length === 0) {
+    throw new Error("out of bounds");
+  }
+  return this[this.length - 1];
+}
+
+let arr = [1, 2, 3];
+
+arr.peek() // 3
+
+</textarea>
+					  
+                    </details>
+					
+					
+					
+
                     <details class="show-piece ">
                       <summary><code></code></summary>
                       <pre><code>
